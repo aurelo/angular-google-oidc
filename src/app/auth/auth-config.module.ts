@@ -7,8 +7,10 @@ import { AuthModule } from 'angular-auth-oidc-client';
         config: {
               configId: 'google', 
               authority: 'https://accounts.google.com',
-              redirectUrl: window.location.origin,
-              postLogoutRedirectUri: window.location.origin,
+              redirectUrl: window.location.origin + (window.location.pathname == '/' ? '' : window.location.pathname),
+              postLogoutRedirectUri: window.location.origin  + window.location.pathname,
+              //redirectUrl: window.location.origin,
+              //postLogoutRedirectUri: window.location.origin,
               clientId: '491499355097-tqd7v7g054r7cep50csdqcju6vhu7k61.apps.googleusercontent.com',//'491499355097-0v04u87qvu9b1ei4kmmff3hu8jv3gk2t.apps.googleusercontent.com',
               //scope: 'openid profile email https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.resource', // 'openid profile offline_access ' + your scopes
               scope: 'openid profile email https://www.googleapis.com/auth/gmail.labels', // 'openid profile offline_access ' + your scopes
