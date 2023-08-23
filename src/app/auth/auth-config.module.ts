@@ -3,7 +3,8 @@ import { AuthModule } from 'angular-auth-oidc-client';
 
 @NgModule({
     imports: [AuthModule.forRoot({
-        config: [{
+        config: [
+           /* {
               configId: 'google', 
               authority: 'https://accounts.google.com',
               redirectUrl: window.location.origin + (window.location.pathname == '/' ? '' : window.location.pathname),
@@ -21,7 +22,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
               useRefreshToken: true,
               renewTimeBeforeTokenExpiresInSeconds: 30,
               secureRoutes: ['https://www.googleapis.com/drive/v3/files', 'https://gmail.googleapis.com/gmail/v1']
-          },
+          },*/
           {
             configId: 'yahoo', 
             authority: 'https://api.login.yahoo.com',//,'https://api.login.yahoo.com',
