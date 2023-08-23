@@ -25,7 +25,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
           },
           {
             configId: 'yahoo', 
-            //authority: 'https://api.login.yahoo.com',//,'https://api.login.yahoo.com',
+            authority: 'https://api.login.yahoo.com',//,'https://api.login.yahoo.com',
             authWellknownEndpoints: {
                 issuer: "https://api.login.yahoo.com",
                 jwksUri: "https://api.login.yahoo.com/openid/v1/certs",
