@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { DriveService } from './drive.service';
 import { KeepService } from './keep.service';
 import { GmailService } from './gmail.service';
+import { FantasysportsService } from './fantasysports.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ export class AppComponent {
     private router: Router,
     private driveService: DriveService,
     private keepService: KeepService,
-    private gmailService: GmailService) {}
+    private gmailService: GmailService,
+    private fantasysports: FantasysportsService) {}
 
   ngOnInit() {
       this.isAuthenticated$ = this.oidcSecurityService.isAuthenticated$;
@@ -29,6 +31,7 @@ export class AppComponent {
       this.oidcSecurityService
             .checkAuth().subscribe((isAuthenticated) => {
               console.log('isAuthenticated', isAuthenticated);
+
               if (!isAuthenticated) {
                 console.error("NOT AUTHENTICATED");
                 }
@@ -42,13 +45,18 @@ export class AppComponent {
 
 
   login(){
-    this.oidcSecurityService.authorize();
+    this.oidcSecurityService.authorize("google");
+  }
+
+  loginWithYahoo(){
+    this.oidcSecurityService.authorize("yahoo");
   }
 
   logout(){
     console.log("Logging off");
     this.oidcSecurityService.logoff();
     this.oidcSecurityService.logoffLocal();
+    this.oidcSecurityService.logoffLocalMultiple();
   }
 
   listFiles() {
@@ -76,6 +84,9 @@ export class AppComponent {
   }
 
 
+  getFanatasyLeagues() {
+    this.fantasysports.getLeagues().subscribe(data => console.log("Get fantasy leagues", data));
+  }
 
   
 }
