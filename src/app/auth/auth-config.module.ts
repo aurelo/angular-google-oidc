@@ -25,7 +25,16 @@ import { AuthModule } from 'angular-auth-oidc-client';
           },
           {
             configId: 'yahoo', 
-            authority: 'http://api.login.yahoo.com',//,'https://api.login.yahoo.com',
+            //authority: 'https://api.login.yahoo.com',//,'https://api.login.yahoo.com',
+            authWellknownEndpoints: {
+                issuer: "https://api.login.yahoo.com",
+                jwksUri: "https://api.login.yahoo.com/openid/v1/certs",
+                authorizationEndpoint: "https://api.login.yahoo.com/oauth2/request_auth",
+                tokenEndpoint: "https://api.login.yahoo.com/oauth2/get_token",
+                userInfoEndpoint: "https://api.login.yahoo.com/openid/v1/userinfo",
+                revocationEndpoint: "https://api.login.yahoo.com/oauth2/revoke",
+                introspectionEndpoint: "https://api.login.yahoo.com/oauth2/introspect"
+            },
             redirectUrl: window.location.origin + (window.location.pathname == '/' ? '' : window.location.pathname),
             postLogoutRedirectUri: window.location.origin  + window.location.pathname,
             //redirectUrl: window.location.origin,
