@@ -41,7 +41,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
             //postLogoutRedirectUri: window.location.origin,
             clientId: 'dj0yJmk9WkFFaHdwRGEyUmg0JmQ9WVdrOWNtNDVSekZoU2pFbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWEx',
             scope: 'openid2',
-            responseType: 'code id_token',
+            responseType: 'id_token',
             silentRenew: true,
             useRefreshToken: true,
             renewTimeBeforeTokenExpiresInSeconds: 30,
