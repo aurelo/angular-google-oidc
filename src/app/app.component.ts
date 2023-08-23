@@ -6,6 +6,7 @@ import { DriveService } from './drive.service';
 import { KeepService } from './keep.service';
 import { GmailService } from './gmail.service';
 import { FantasysportsService } from './fantasysports.service';
+import { GitlabService } from './gitlab.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ export class AppComponent {
     private driveService: DriveService,
     private keepService: KeepService,
     private gmailService: GmailService,
-    private fantasysports: FantasysportsService) {}
+    private fantasysports: FantasysportsService,
+    private gitlabService: GitlabService
+    ) {}
 
   ngOnInit() {
       this.isAuthenticated$ = this.oidcSecurityService.isAuthenticated$;
@@ -50,6 +53,10 @@ export class AppComponent {
 
   loginWithYahoo(){
     this.oidcSecurityService.authorize("yahoo");
+  }
+
+  loginWithGitlab(){
+    this.oidcSecurityService.authorize("gitlab");
   }
 
   logout(){
@@ -86,6 +93,16 @@ export class AppComponent {
 
   getFanatasyLeagues() {
     this.fantasysports.getLeagues().subscribe(data => console.log("Get fantasy leagues", data));
+  }
+
+  listGitlabProjects() {
+    this.gitlabService.listProjects().subscribe(data => console.log("List Gitlab projects for user: ", data));
+  }
+
+  readGitLabUser() {
+    this.gitlabService.readUser().subscribe(data => {
+      console.log("Read Gitlab user: ", data);
+    })
   }
 
   

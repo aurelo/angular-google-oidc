@@ -4,7 +4,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
 @NgModule({
     imports: [AuthModule.forRoot({
         config: [
-           /* {
+            {
               configId: 'google', 
               authority: 'https://accounts.google.com',
               redirectUrl: window.location.origin + (window.location.pathname == '/' ? '' : window.location.pathname),
@@ -22,8 +22,8 @@ import { AuthModule } from 'angular-auth-oidc-client';
               useRefreshToken: true,
               renewTimeBeforeTokenExpiresInSeconds: 30,
               secureRoutes: ['https://www.googleapis.com/drive/v3/files', 'https://gmail.googleapis.com/gmail/v1']
-          },*/
-          {
+          },
+          /*{
             configId: 'yahoo', 
             authority: 'https://api.login.yahoo.com',//,'https://api.login.yahoo.com',
             authWellknownEndpoints: {
@@ -46,6 +46,21 @@ import { AuthModule } from 'angular-auth-oidc-client';
             useRefreshToken: true,
             renewTimeBeforeTokenExpiresInSeconds: 30,
             secureRoutes: ['https://fantasysports.yahooapis.com/fantasy/v2']
+        }*/
+        {
+            configId: 'gitlab', 
+            authority: 'https://gitlab.com',
+            redirectUrl: window.location.origin + (window.location.pathname == '/' ? '' : window.location.pathname),
+            postLogoutRedirectUri: window.location.origin  + window.location.pathname,
+            //redirectUrl: window.location.origin,
+            //postLogoutRedirectUri: window.location.origin,
+            clientId: 'b0bb04766b8cc6dc54bdaeb2909e27bdee82c8c358101f106f71b3c7648f0476', // c74e56bdfe780403a4c6c4315509465add4f418c0c4eb98128340b85766fe0a4
+            scope: 'openid read_user',
+            responseType: 'code',
+            silentRenew: true,
+            useRefreshToken: true,
+            renewTimeBeforeTokenExpiresInSeconds: 30,
+            secureRoutes: ['https://gitlab.com']
         }
         ]
       })],
