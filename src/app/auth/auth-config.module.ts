@@ -25,7 +25,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
           },
           {
             configId: 'yahoo', 
-            authority: 'https://api.login.yahoo.com',
+            authority: 'http://api.login.yahoo.com',//,'https://api.login.yahoo.com',
             redirectUrl: window.location.origin + (window.location.pathname == '/' ? '' : window.location.pathname),
             postLogoutRedirectUri: window.location.origin  + window.location.pathname,
             //redirectUrl: window.location.origin,
